@@ -1,0 +1,89 @@
+# =========================
+# Build directories
+# =========================
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+compile_commands.json
+
+# =========================
+# Compiled objects / binaries
+# =========================
+*.o
+*.so
+*.a
+*.out
+*.exe
+*.app
+
+# =========================
+# CMake / Autotools
+# =========================
+aclocal.m4
+autom4te.cache/
+m4/
+
+# =========================
+# Editor / IDE
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Python (if you use scripts)
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+
+# =========================
+# Simulation outputs (IMPORTANT for you)
+# =========================
+data/
+output/
+results/
+*.dat
+*.csv
+
+
+*.txt
+
+# Images (optional — depends if you want them tracked)
+# Uncomment if these are generated:
+*.png
+*.jpg
+*.gif
+*.mp4
+
+# =========================
+# Cluster / job scheduler
+# =========================
+*.e*
+*.o*
+*.pe*
+*.po*
+
+# =========================
+# Large files / checkpoints
+# =========================
+checkpoints/
+*.h5
+*.hdf5
+
+# =========================
+# OS-specific
+# =========================
+Thumbs.db
+src/TimeEvolution.txt
+build/*
