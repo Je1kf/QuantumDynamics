@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import subprocess
 
-data = np.loadtxt("../src/TimeEvolution.txt")
+data = np.loadtxt("../src/stationaryGaussian.txt")
 sx = 10
 nx = 160
 nt = 1000
@@ -29,12 +29,12 @@ for k in range(round(nt)):
         ax = plt.pcolor(x, y,
                         abs(psi[round(i):round(j), :])**2,
                         cmap='hot',
-                        # vmax=abs(psi).max()**2,
-                        # vmin=0,
+                        #vmax=abs(psi).max()**2,
+                        vmin=0,
                         )
         plt.colorbar()
-        plt.xlabel("x (nm)")
-        plt.ylabel("z (nm)")
+        plt.xlabel("x a.u.")
+        plt.ylabel("z a.u.")
         plt.tight_layout()
         plt.savefig(f'images/{aux:000002}', dpi=300)
         plt.close()

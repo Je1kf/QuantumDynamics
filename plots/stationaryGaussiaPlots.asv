@@ -22,8 +22,7 @@ for k = 1:999
     k
     i = k*nx + 1;
     j = (k+1) * nx;
-    f1 = fit(x', abs(psi(i:j, 80)).^2, gaussEqn, ...
-             'Start', [1, 1]);
+    f1 = fit(x', abs(psi(i:j, 80)).^2, gaussEqn, [1, ]);
     % plot(x, abs(psi(i:j, nx/2)).^2, ...
     %      x, gauss(x, f1.a, f1.c), '.')
     sigmas(k) = f1.c * sqrt(2);

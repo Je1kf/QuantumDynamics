@@ -5,7 +5,7 @@ build/
 cmake-build-*/
 CMakeFiles/
 CMakeCache.txt
-Makefile
+!Makefile
 compile_commands.json
 
 # =========================

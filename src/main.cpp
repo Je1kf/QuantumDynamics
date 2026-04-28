@@ -14,6 +14,8 @@ using T = Eigen::Triplet<cd>;
 
 typedef Eigen::SparseMatrix<std::complex<double>> SpComplexMatrix;
 
+cd pi = cd(3.14159265359, 0);
+
 struct sim{
     int nt;
     int nx;
@@ -86,16 +88,18 @@ void absorbingFrontiers(VectorXcd& A, const sim& p) {
 // Sources
 // ======================
 void wavePacket(VectorXcd& psi, VectorXcd& X, VectorXcd& Y, const sim& p, const wp& w) {
+    // Set a normalized Gaussian wavepacket
     int k;
     cd x;
     cd y;
+    cd N = cd(std::pow(pi.real()*w.sigma.real()*w.sigma.real(), -1.0/4.0), 0);
     for (int i = 0; i < p.nx; i++) {
         for (int j = 0; j < p.nx; j ++) {
             k = i*p.nx + j;
             x = X(k);
             y = Y(k);
-            psi(k) = std::exp(-((x-w.x0)*(x-w.x0) + (y-w.y0)*(y-w.y0)) / (cd(2, 0)*w.sigma*w.sigma)) * 
-                     std::exp(cd(0, -1) * (w.kx*(x-w.x0) + w.ky*(y-w.y0)));
+            psi(k) =  N * std::exp(-((x-w.x0)*(x-w.x0) + (y-w.y0)*(y-w.y0)) / (cd(2, 0)*w.sigma*w.sigma)) * 
+                          std::exp(cd(0, -1) * (w.kx*(x-w.x0) + w.ky*(y-w.y0)));
         }
      } 
 }
@@ -280,7 +284,6 @@ int main() {
     std::string fileE = "TimeEvolution.txt";
     std::string fileM = "Matrix2.txt";
 
-    cd pi = cd(3.14159265359, 0);
 
     // ======================
     // Simulation parameters
