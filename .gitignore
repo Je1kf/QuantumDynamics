@@ -5,7 +5,6 @@ build/
 cmake-build-*/
 CMakeFiles/
 CMakeCache.txt
-!build/Makefile
 compile_commands.json
 
 # =========================
@@ -87,3 +86,4 @@ checkpoints/
 Thumbs.db
 src/TimeEvolution.txt
 build/*
+!build/Makefile
